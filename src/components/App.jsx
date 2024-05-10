@@ -1,19 +1,40 @@
-/* import { useState } from "react"; */
+import { useState } from "react";
 import "../styles/App.scss";
+import Board from "./Board";
+import Header from "./Header";
 
 function App() {
+
+ const [status, setStatus] = useState("En curso");
+ const [foot, setFoot] = useState("👣");
+
+ const [cookies, setCookies] = useState([ "🍪", "🍪", "🍪"]);
+ const [eggs, setEggs] = useState([ "🥚", "🥚", "🥚"]);
+ const [frogs, setFrogs] = useState([ "🐸", "🐸", "🐸"]);
+
 
  function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
   }
 
   
+  
 //identificar las variables, boton de lanzar dado, en funcion del resultado del dado, sumar uno a grogu o restar de uno de los array de las mercancias
-const handleClick =(event)=>{
+const rollDice =(event)=>{
     event.preventDefault();
     const getNumber = getRandomNumber(4);
     console.log(getNumber)
-    getRandomNumber()
+    
+
+    if (getNumber === 4) {
+      console.log("grogu")
+    } else if (getNumber === 1) {
+      console.log("galleta")
+    } else if (getNumber === 2) {
+      console.log("huevo")
+    } else if (getNumber === 3) {
+      console.log("rana")
+    }
     //condicionales 1= grogu, 2= galleta, 3= huevo, 4= rana
     //si getNumber es igual a 1, se mueve una casilla(div) 
     //si getNumber es igual a 2, se elimina una galleta(div) 
@@ -31,23 +52,13 @@ const handleClick =(event)=>{
 
   return (
     <>
-      <header>
-        <h1>¡Cuidado con Grogu!</h1>
-      </header>
+      <Header />
       <main className="page">
-          <section className="board">
-            <div className="cell"><div className="grogu">👣</div></div> {/* mover el div de los pies */}
-            <div className="cell"></div>
-            <div className="cell"></div>
-            <div className="cell"></div>
-            <div className="cell"></div>
-            <div className="cell"></div>
-            <div className="cell"></div>
-          </section>
+          <Board />
 
           <section>
-            <button className="dice" onClick={handleClick}>Lanzar Dado</button> {/* escuchamos el evento click para lanzar un numero random */}
-            <div className="game-status">En curso</div> {/* modificar si esta en curso, has ganado o perdido */}
+            <button className="dice" onClick={rollDice}>Lanzar Dado</button> {/* escuchamos el evento click para lanzar un numero random */}
+            <div className="game-status">{status}</div> {/* modificar si esta en curso, has ganado o perdido */}
           </section>
 
           <section className="goods-container">
