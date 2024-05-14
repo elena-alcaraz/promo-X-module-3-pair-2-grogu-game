@@ -1,17 +1,17 @@
+import { useState } from "react"
 import Grogu from "./Grogu"
 
 
-function Board() {
+function Board({board}) {
+  const boardHtml = board.map((item, index)=> {
+   //Nos falta hacer el map  y que nos pinte 7 casilas
+  })
   return (
     <section className="board">
-    <div className="cell"><Grogu/></div> {/* mover el div de los pies */}
-    <div className="cell"></div>
-    <div className="cell"></div>
-    <div className="cell"></div>
-    <div className="cell"></div>
-    <div className="cell"></div>
-    <div className="cell"></div>
-  </section>
+     <div className="cell"></div> 
+
+      {/*  mover el div de los pies */} 
+    </section>
   )
 }
 
