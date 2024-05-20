@@ -9,7 +9,7 @@ function App() {
 
  const [status, setStatus] = useState("En curso");
  const [board, setBoard]= useState(Array(7).fill(null));
- const [foot, setFoot] = useState(["👣"]);
+ const [groguPosition, setGroguPosition] = useState(["👣"]);
 
  const [cookies, setCookies] = useState([ "🍪", "🍪", "🍪"]);
  const [eggs, setEggs] = useState([ "🥚", "🥚", "🥚"]);
