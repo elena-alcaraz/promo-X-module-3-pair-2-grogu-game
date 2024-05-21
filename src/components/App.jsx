@@ -8,8 +8,8 @@ import Mercancias from "./Mercancias";
 function App() {
 
  const [status, setStatus] = useState("En curso");
- const [board, setBoard]= useState(Array(7).fill(null));
- const [groguPosition, setGroguPosition] = useState(["👣"]);
+ const [board, setBoard]= useState();
+ const [groguPosition, setGroguPosition] = useState(0);
 
  const [cookies, setCookies] = useState([ "🍪", "🍪", "🍪"]);
  const [eggs, setEggs] = useState([ "🥚", "🥚", "🥚"]);
@@ -28,7 +28,7 @@ const rollDice = () => {
     console.log(getNumber)
     if (getNumber === 4) {
       console.log("grogu")
-      //setFoot() > cambiar la posición del índice (sumarle 1)
+      setGroguPosition((position ) => position + 1);
     } else if (getNumber === 1) {
       console.log("galleta")
       const newCookies = [...cookies]
@@ -54,7 +54,7 @@ const rollDice = () => {
     <>
       <Header />
       <main className="page">
-          <Board board={board} />
+          <Board groguPosition={groguPosition} />
 
           <section>
             <Dice rollDice={rollDice} /> {/* escuchamos el evento click para lanzar un numero random */}

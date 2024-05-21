@@ -1,23 +1,17 @@
-import { useState } from "react"
-import Grogu from "./Grogu"
+import Cell from "./Cell";
+
+function Board({groguPosition}) {
+  const cell = Array(7).fill(null);
 
 
-function Board({board}) {
-  const boardHtml = board.map((item, index)=> (
-    <div key={index} className="cell">
-      {item} 
-      <Grogu />
-       
-    </div>
-  ));
-   
-  
   return (
-    <section className="board">
 
-      {boardHtml}
-     
-    </section> 
+    <div className="board">
+      {/* como le damos posicion cero, no puede estar dentro del array, con la _ le damos un número más */} 
+      {cell.map((_, index) => (<Cell key={index} groguHere={index === groguPosition}/>))}  
+      
+    </div>
+   
   )
 }
 
