@@ -63,12 +63,18 @@ html {
     transition: transform 0.2s;
 }
 
+.diceResult {
+    color:#4CAF50;
+    margin-top: 10px;
+}
+
 .dice:hover {
     transform: scale(1.1);
 }
 
 .game-status {
     font-size: 18px;
+    text-align: center;
     font-weight: bold;
     text-shadow: 2px 2px 4px #000;
     margin-bottom: 10px;

@@ -12,6 +12,8 @@ function App() {
  const [board, setBoard]= useState();
  const [groguPosition, setGroguPosition] = useState(0);
 
+ const [diceValue, setDiceValue] = useState(null);
+
  const [cookies, setCookies] = useState([ "🍪", "🍪", "🍪"]);
  const [eggs, setEggs] = useState([ "🥚", "🥚", "🥚"]);
  const [frogs, setFrogs] = useState([ "🐸", "🐸", "🐸"]);
@@ -44,6 +46,7 @@ function App() {
 const rollDice = () => {
     const getNumber = getRandomNumber(4);
     console.log(getNumber)
+    setDiceValue(getNumber);
     if (getNumber === 4) {
       console.log("grogu")
       setGroguPosition((position) => position + 1);
@@ -92,7 +95,7 @@ const resetGame = () => {
           <Board groguPosition={groguPosition} />
 
           <section>
-            <Dice rollDice={rollDice} /> {/* escuchamos el evento click para lanzar un numero random */}
+            <Dice rollDice={rollDice} diceValue={diceValue}/> {/* escuchamos el evento click para lanzar un numero random */}
             <div className="game-status">{status}</div> {/* modificar si esta en curso, has ganado o perdido */}
           </section>
 
